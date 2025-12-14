@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Ears / 4 Levels Self-Test (Schulz von Thun)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .intro, .evaluation-logic {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .question-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .scenario {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result-area {
+            display: none;
+            background-color: #e8f6f3;
+            border: 2px solid #1abc9c;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .bar-container {
+            margin-bottom: 15px;
+        }
+        .bar-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bar-bg {
+            background-color: #ddd;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            text-align: right;
+            padding-right: 5px;
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+            transition: width 1s ease-in-out;
+        }
+        .blue { background-color: #3498db; } /* Factual */
+        .red { background-color: #e74c3c; }  /* Relationship */
+        .yellow { background-color: #f1c40f; color: #333; } /* Self-Rev */
+        .green { background-color: #2ecc71; } /* Appeal */
+
+    </style>
+</head>
+<body>
+
+    <h1>Self-Test: The 4 Ears Model</h1>
+    <h3>Based on the Communication Model by Friedemann Schulz von Thun</h3>
+
+    <div class="intro">
+        <p><strong>Instructions:</strong> According to Schulz von Thun, every message has four layers. We often have a "favorite ear" with which we prefer to listen. This test helps you identify your dominant listening habit.</p>
+        <p>Please choose the reaction that comes most naturally to you. Be honest and spontaneous!</p>
+    </div>
+
+    <form id="quizForm">
+
+        <div class="question-card">
+            <div class="scenario">1. Cashier Situation: You've been waiting long. The cashier groans: "It's so stressful today."</div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="fac"> You agree with her that it is busy.</label>
+                <label><input type="radio" name="q1" value="rel"> You are annoyed that she is unfriendly instead of hurrying up.</label>
+                <label><input type="radio" name="q1" value="app"> You tell her you are not in a hurry (trying to soothe her).</label>
+                <label><input type="radio" name="q1" value="sel"> It crosses your mind that it must be really stressful for her.</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">2. Breakfast: Partner asks "Are there any rolls left?"</div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="fac"> "Yes / No."</label>
+                <label><input type="radio" name="q2" value="rel"> "Can't you look for yourself? Let me look at my phone!"</label>
+                <label><input type="radio" name="q2" value="sel"> "Are you still hungry?" (Focus on partner's need)</label>
+                <label><input type="radio" name="q2" value="app"> You hand him/her a roll.</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">3. Cycling: Friend says "I want to ride a new big loop today."</div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="app"> You get in line behind him/her and follow (Compliance).</label>
+                <label><input type="radio" name="q3" value="rel"> He/She doesn't trust my decision-making ability.</label>
+                <label><input type="radio" name="q3" value="fac"> Aha, we are riding a new big loop today.</label>
+                <label><input type="radio" name="q3" value="sel"> He/She has a lot of energy today.</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">4. Message: "I'm coming home later today."</div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="fac"> He/She will be late (Fact).</label>
+                <label><input type="radio" name="q4" value="app"> I should start cooking / wait (Action).</label>
+                <label><input type="radio" name="q4" value="sel"> He/She has a lot to do at work.</label>
+                <label><input type="radio" name="q4" value="rel"> Work is more important to him/her than I am.</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">5. Reading Harry Potter: Someone asks "What exciting thing are you reading?"</div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="sel"> You ask back: "Do you like books too?" (Focus on them).</label>
+                <label><input type="radio" name="q5" value="app"> You don't want to talk and keep reading (Rejecting the appeal to talk).</label>
+                <label><input type="radio" name="q5" value="fac"> "I'm reading Harry Potter and the Sorcerer's Stone."</label>
+                <label><input type="radio" name="q5" value="rel"> "I'm reading Harry Potter and the Death of the person interrupting me."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">6. Missing Item: "I can't find the shopping list."</div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="sel"> You think: "He/She seems annoyed/stressed."</label>
+                <label><input type="radio" name="q6" value="app"> You help search immediately.</label>
+                <label><input type="radio" name="q6" value="fac"> You say "Okay" and keep doing what you were doing.</label>
+                <label><input type="radio" name="q6" value="rel"> "That's typical, you never find your stuff."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">7. Traffic: Pedestrian yells "Where did you learn to drive?"</div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="fac"> You answer literally: "In driving school..."</label>
+                <label><input type="radio" name="q7" value="app"> He wants me to concentrate more (so I will).</label>
+                <label><input type="radio" name="q7" value="rel"> "You a**hole, don't talk to me like that!"</label>
+                <label><input type="radio" name="q7" value="sel"> "He probably got up on the wrong side of the bed."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">8. Stranger: "Do you have a watch/the time?"</div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="rel"> You pretend not to hear and walk on (Defensive).</label>
+                <label><input type="radio" name="q8" value="app"> I tell him what time it is (Complying with request).</label>
+                <label><input type="radio" name="q8" value="fac"> "Yes." (Literal answer).</label>
+                <label><input type="radio" name="q8" value="sel"> "He is probably in a rush / has an appointment."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">9. Boss: "Where are the documents?"</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="rel"> Feeling you've done something wrong again.</label>
+                <label><input type="radio" name="q9" value="fac"> "The documents are on the desk."</label>
+                <label><input type="radio" name="q9" value="app"> You stand up and search for them.</label>
+                <label><input type="radio" name="q9" value="sel"> "The boss is stressed out again today."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">10. Upset: Friend says "Just relax."</div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="app"> I should take a break.</label>
+                <label><input type="radio" name="q10" value="fac"> I am currently upset (Analysing the state).</label>
+                <label><input type="radio" name="q10" value="sel"> He is worried about me.</label>
+                <label><input type="radio" name="q10" value="rel"> He is annoyed by me again.</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">11. Colleague: "It took you that long for this?"</div>
+            <div class="options">
+                <label><input type="radio" name="q11" value="app"> "Next time I will be faster."</label>
+                <label><input type="radio" name="q11" value="rel"> "Do your own crap alone next time."</label>
+                <label><input type="radio" name="q11" value="fac"> "Yes, the task was more complex than expected."</label>
+                <label><input type="radio" name="q11" value="sel"> "He probably got pressure from the boss again."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">12. Elderly: Children ask "How long do you want to live here alone?"</div>
+            <div class="options">
+                <label><input type="radio" name="q12" value="fac"> "I am calculating/considering the timeframe."</label>
+                <label><input type="radio" name="q12" value="sel"> "My children are worried about me."</label>
+                <label><input type="radio" name="q12" value="rel"> "They don't trust me to handle life alone anymore."</label>
+                <label><input type="radio" name="q12" value="app"> "I should look for an age-appropriate apartment."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">13. Colleague groans: "There is still so much to do!"</div>
+            <div class="options">
+                <label><input type="radio" name="q13" value="app"> You stand up and help immediately.</label>
+                <label><input type="radio" name="q13" value="fac"> You notice: yes, there is a lot of work.</label>
+                <label><input type="radio" name="q13" value="rel"> You try to soothe/encourage him (Relationship management).</label>
+                <label><input type="radio" name="q13" value="sel"> You think: "He is stressed and overwhelmed."</label>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="scenario">14. Leaf Blower noise outside.</div>
+            <div class="options">
+                <label><input type="radio" name="q14" value="rel"> "Turn that stupid thing off and stop annoying me!"</label>
+                <label><input type="radio" name="q14" value="fac"> "It is loud, but I will continue working."</label>
+                <label><input type="radio" name="q14" value="app"> "I will leave the house for a quieter place." (Action taken).</label>
+                <label><input type="radio" name="q14" value="sel"> "That must be exhausting work for him/her."</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="evaluateTest()">Evaluate Test</button>
+    </form>
+
+    <div id="result-area">
+        <h2>Your Results</h2>
+        <p>Here is how often you listened with each "Ear":</p>
+
+        <div class="bar-container">
+            <div class="bar-label">
+                <span>The Factual Ear (Facts & Data)</span>
+                <span id="score-fac">0</span>
+            </div>
+            <div class="bar-bg">
+                <div class="bar-fill blue" id="bar-fac" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="bar-container">
+            <div class="bar-label">
+                <span>The Relationship Ear (Taking it personally)</span>
+                <span id="score-rel">0</span>
+            </div>
+            <div class="bar-bg">
+                <div class="bar-fill red" id="bar-rel" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="bar-container">
+            <div class="bar-label">
+                <span>The Self-Revelation Ear (Empathy/Diagnosis)</span>
+                <span id="score-sel">0</span>
+            </div>
+            <div class="bar-bg">
+                <div class="bar-fill yellow" id="bar-sel" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="bar-container">
+            <div class="bar-label">
+                <span>The Appeal Ear (Action/Commands)</span>
+                <span id="score-app">0</span>
+            </div>
+            <div class="bar-bg">
+                <div class="bar-fill green" id="bar-app" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div id="explanation-text" style="margin-top: 20px; padding-top:10px; border-top:1px solid #ccc;">
+            </div>
+    </div>
+
+    <div class="evaluation-logic">
+        <h3>How the evaluation works</h3>
+        <p>This test counts which level you chose for each scenario. There are 14 questions in total.</p>
+        <ul>
+            <li><strong>Factual Ear (Blue):</strong> You prefer to focus on the objective content. You stick to the facts and often miss emotional undertones.</li>
+            <li><strong>Relationship Ear (Red):</strong> You take things personally. You often feel criticized, attacked, or assume the statement says something about your standing with the other person.</li>
+            <li><strong>Self-Revelation Ear (Yellow):</strong> You focus on the sender. You ask: "How is he feeling?" or "Why is he saying this?". This is the ear of empathy (or sometimes diagnostics).</li>
+            <li><strong>Appeal Ear (Green):</strong> You have an "action bias". You hear a command or a request in everything. You want to please, help, or fix the situation immediately.</li>
+        </ul>
+    </div>
+
+    <script>
+        function evaluateTest() {
+            // Initialize counters
+            let scores = {
+                fac: 0,
+                rel: 0,
+                sel: 0,
+                app: 0
+            };
+            
+            let totalQuestions = 14;
+            let answeredCount = 0;
+
+            // Loop through questions 1 to 14
+            for (let i = 1; i <= totalQuestions; i++) {
+                let options = document.getElementsByName('q' + i);
+                let selected = false;
+                
+                for (let option of options) {
+                    if (option.checked) {
+                        scores[option.value]++;
+                        selected = true;
+                        break; // Stop checking other options for this question
+                    }
+                }
+                if(selected) answeredCount++;
+            }
+
+            if (answeredCount < totalQuestions) {
+                alert("Please answer all questions to get an accurate result. You answered " + answeredCount + " of " + totalQuestions + ".");
+                return;
+            }
+
+            // Display Results
+            document.getElementById('result-area').style.display = 'block';
+
+            // Update Text Scores
+            document.getElementById('score-fac').innerText = scores.fac;
+            document.getElementById('score-rel').innerText = scores.rel;
+            document.getElementById('score-sel').innerText = scores.sel;
+            document.getElementById('score-app').innerText = scores.app;
+
+            // Update Bars (Calculate percentage)
+            document.getElementById('bar-fac').style.width = (scores.fac / totalQuestions * 100) + '%';
+            document.getElementById('bar-rel').style.width = (scores.rel / totalQuestions * 100) + '%';
+            document.getElementById('bar-sel').style.width = (scores.sel / totalQuestions * 100) + '%';
+            document.getElementById('bar-app').style.width = (scores.app / totalQuestions * 100) + '%';
+
+            // Determine dominant ear
+            let maxScore = Math.max(scores.fac, scores.rel, scores.sel, scores.app);
+            let dominantTypes = [];
+            
+            if (scores.fac === maxScore) dominantTypes.push("Factual Ear");
+            if (scores.rel === maxScore) dominantTypes.push("Relationship Ear");
+            if (scores.sel === maxScore) dominantTypes.push("Self-Revelation Ear");
+            if (scores.app === maxScore) dominantTypes.push("Appeal Ear");
+
+            let resultText = "<p><strong>Your dominant listening style: " + dominantTypes.join(" & ") + "</strong></p>";
+            
+            if(dominantTypes.includes("Relationship Ear")) {
+                resultText += "<p><em>Tip:</em> You tend to take things personally. Try to step back and ask yourself: Is this really about me, or just about the situation?</p>";
+            }
+            if(dominantTypes.includes("Appeal Ear")) {
+                resultText += "<p><em>Tip:</em> You jump to action quickly. Sometimes people just want to vent without you solving their problem immediately.</p>";
+            }
+            if(dominantTypes.includes("Factual Ear")) {
+                resultText += "<p><em>Tip:</em> You are very objective, but might miss emotional cues. Try to pay attention to tone of voice and feelings.</p>";
+            }
+            if(dominantTypes.includes("Self-Revelation Ear")) {
+                resultText += "<p><em>Tip:</em> You are empathetic. Be careful not to over-analyze others constantly (diagnosing them) instead of just listening.</p>";
+            }
+
+            document.getElementById('explanation-text').innerHTML = resultText;
+            
+            // Scroll to results
+            document.getElementById('result-area').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
